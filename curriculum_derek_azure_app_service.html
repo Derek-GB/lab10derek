@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Currículum · Derek — Profesional de TI</title>
+  <meta name="description" content="Currículum de Derek, profesional de TI con proyectos universitarios completados, habilidades en desarrollo de software, DevOps y cloud." />
+  <meta property="og:title" content="Currículum · Derek — Profesional de TI" />
+  <meta property="og:description" content="Perfil técnico, habilidades, proyectos y contacto." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%230a0a0a'/%3E%3Ctext x='50' y='60' font-size='56' text-anchor='middle' fill='%23ffffff' font-family='Segoe UI, Roboto, Helvetica, Arial, sans-serif'%3ED%3C/text%3E%3C/svg%3E" />
+  <style>
+    /* ====== Variables y Reset ====== */
+    :root{
+      --bg: #0b0c10;
+      --bg-soft: #121318;
+      --fg: #e8eaed;
+      --muted: #b8c0cc;
+      --primary: #7dd3fc; /* sky-300 */
+      --primary-strong: #38bdf8; /* sky-400 */
+      --card: #101216;
+      --border: #1f2430;
+      --accent: #a78bfa; /* violet-400 */
+      --ok: #34d399; /* emerald-400 */
+      --warn: #f59e0b; /* amber-500 */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 20px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --maxw: 1080px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: radial-gradient(1200px 800px at 70% -20%, rgba(125,211,252,.08), transparent 60%),
+                  radial-gradient(1000px 600px at -10% 20%, rgba(167,139,250,.08), transparent 60%),
+                  var(--bg);
+      letter-spacing: .2px;
+    }
+
+    a{ color: var(--primary-strong); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* ====== Layout ====== */
+    .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    header{
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(16,18,22,.9), rgba(16,18,22,.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      position: sticky; top: 16px; z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .avatar{
+      width: 96px; height: 96px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid; place-items: center; color: #0b0c10;
+      font-weight: 800; font-size: 40px;
+      border: 1px solid var(--border);
+    }
+
+    .title h1{ margin: 0; font-size: 28px; letter-spacing: .4px; }
+    .title p{ margin: 4px 0 0; color: var(--muted); }
+
+    .ctas{ display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn{
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 999px; border: 1px solid var(--border);
+      background: linear-gradient(180deg, #11131a, #0c0f15);
+      box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, var(--shadow);
+      transition: transform .12s ease, box-shadow .2s ease;
+      font-weight: 600;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 2px 0 rgba(255,255,255,.06) inset, var(--shadow); text-decoration: none; }
+    .btn.primary{ border-color: rgba(56,189,248,.5); background: linear-gradient(180deg, rgba(0,120,200,.25), rgba(0,60,100,.25)); }
+
+    main{ margin-top: 24px; display: grid; gap: 24px; }
+
+    section{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    section h2{ margin: 0 0 12px; font-size: 20px; letter-spacing: .3px; }
+
+    .grid{ display: grid; gap: 16px; }
+    .grid.cols-2{ grid-template-columns: 1fr 1fr; }
+    .grid.cols-3{ grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px){ .grid.cols-3{ grid-template-columns: 1fr; } }
+    @media (max-width: 720px){ header{ grid-template-columns: 64px 1fr; grid-auto-rows: auto; }
+      .avatar{ width:64px;height:64px;font-size:28px; }
+      .ctas{ grid-column: 1 / -1; }
+      .grid.cols-2{ grid-template-columns: 1fr; }
+    }
+
+    /* ====== Chips, listas y detalles ====== */
+    .chips{ display:flex; flex-wrap: wrap; gap: 8px; }
+    .chip{
+      padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border);
+      background: #0f1220; color: var(--fg); font-size: 14px; white-space: nowrap;
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, #0f1218, #0c0f15);
+      padding: 16px; display: grid; gap: 8px;
+    }
+
+    .meta{ color: var(--muted); font-size: 14px; }
+    .list{ margin: 0; padding-left: 18px; }
+    .list li{ margin: 4px 0; }
+
+    .kpi{
+      display:flex; gap: 10px; align-items:center; font-weight: 600; font-size: 14px;
+      color: var(--ok); background: #0e1b16; border: 1px solid #123428; padding: 6px 10px; border-radius: 10px;
+      width: max-content;
+    }
+
+    /* ====== Footer ====== */
+    footer{ text-align:center; color: var(--muted); padding: 24px 0 40px; }
+
+    /* ====== Accesibilidad ====== */
+    :focus-visible{ outline: 3px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+    @media (prefers-reduced-motion: reduce){ *{ transition: none !important; } }
+
+    /* ====== Impresión (PDF) ====== */
+    @media print{
+      body{ background: #fff; color: #111; }
+      header, section{ box-shadow: none; }
+      header{ position: static; }
+      a{ color: #000; text-decoration: underline; }
+      .btn{ display: none !important; }
+      .chips .chip{ border-color: #ddd; background: #f6f6f6; color: #111; }
+      .kpi{ color: #0a6847; border-color: #bfe3d2; background: #e9f7f1; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Derek",
+    "jobTitle": "Profesional de TI",
+    "url": "https://tu-dominio-o-azurewebsites.net/",
+    "sameAs": [
+      "https://www.linkedin.com/in/tu-usuario",
+      "https://github.com/tu-usuario"
+    ],
+    "knowsAbout": ["Desarrollo web", "API REST", "DevOps", "Azure", "Docker", "SQL", "Node.js", "HTML", "CSS", "JavaScript"]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header aria-label="Encabezado de currículum">
+      <div class="avatar" aria-hidden="true">D</div>
+      <div class="title">
+        <h1>Derek · Profesional de TI</h1>
+        <p>Desarrollador con enfoque en backend y cloud. Me apasiona crear soluciones confiables y escalables; 3 proyectos universitarios completados.</p>
+      </div>
+      <nav class="ctas" aria-label="Acciones" role="navigation">
+        <a class="btn primary" href="#contacto">Contacto</a>
+        <a class="btn" href="#proyectos">Proyectos</a>
+        <a class="btn" href="#experiencia">Experiencia</a>
+        <a class="btn" href="#habilidades">Habilidades</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="resumen" aria-labelledby="h-resumen">
+        <h2 id="h-resumen">Resumen</h2>
+        <p>
+          Soy <strong>Derek</strong>, técnico en TI con bases sólidas en desarrollo de software, bases de datos y despliegue en la nube.
+          Me siento cómodo diseñando APIs, automatizando despliegues y optimizando consultas SQL. Busco mi primer rol profesional para aportar con
+          calidad de código, documentación clara y aprendizaje continuo.
+        </p>
+        <div class="chips" style="margin-top: 10px;">
+          <span class="chip">Disponibilidad inmediata</span>
+          <span class="chip">Trabajo remoto o híbrido</span>
+          <span class="chip">Inglés intermedio</span>
+        </div>
+      </section>
+
+      <section id="habilidades" aria-labelledby="h-habilidades">
+        <h2 id="h-habilidades">Habilidades</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <strong>Backend</strong>
+            <p class="meta">Node.js · Express · REST · Autenticación · Testing</p>
+            <ul class="list">
+              <li>Diseño de endpoints limpios y versionados.</li>
+              <li>Manejo de errores centralizado y logs estructurados.</li>
+              <li>Validación con JSON Schema/celebrate/zod.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>Datos</strong>
+            <p class="meta">MySQL · PostgreSQL · SQL Server · ORM (Prisma/Sequelize)</p>
+            <ul class="list">
+              <li>Modelado relacional, índices y vistas.</li>
+              <li>Consultas parametrizadas y migraciones.</li>
+              <li>ETL básico y reportes.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>DevOps & Cloud</strong>
+            <p class="meta">Azure App Service · Docker · CI/CD · Linux</p>
+            <ul class="list">
+              <li>Contenerización y despliegues en Azure App Service.</li>
+              <li>Automatización de build/test con pipelines.</li>
+              <li>Monitoreo y logs con Application Insights.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="chips" style="margin-top: 12px;">
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Git</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Azure</span>
+          <span class="chip">Swagger / OpenAPI</span>
+        </div>
+      </section>
+
+      <section id="proyectos" aria-labelledby="h-proyectos">
+        <h2 id="h-proyectos">Proyectos universitarios (3 completados)</h2>
+        <div class="grid cols-2">
+          <article class="card" aria-labelledby="p1-title">
+            <div class="kpi" title="Estado del proyecto">● Proyecto completado</div>
+            <h3 id="p1-title" style="margin: 6px 0 0;">Sistema de Gestión de Albergues</h3>
+            <p class="meta">Node.js · Express · MySQL · Docker · Swagger</p>
+            <ul class="list">
+              <li>API REST para registro de albergues, personas y firmas digitales.</li>
+              <li>Autenticación con JWT y control de roles.</li>
+              <li>Despliegue en Azure App Service usando contenedor Docker.</li>
+            </ul>
+            <p class="meta">Repositorio: <a href="https://github.com/tu-usuario/albergues" target="_blank" rel="noopener">github.com/tu-usuario/albergues</a></p>
+          </article>
+
+          <article class="card" aria-labelledby="p2-title">
+            <div class="kpi">● Proyecto completado</div>
+            <h3 id="p2-title" style="margin: 6px 0 0;">API para Biblioteca Universitaria</h3>
+            <p class="meta">Node.js · PostgreSQL · Prisma · Jest</p>
+            <ul class="list">
+              <li>CRUD de libros, préstamos y usuarios con paginación y filtros.</li>
+              <li>Pruebas unitarias de servicios y repositorios.</li>
+              <li>Documentación OpenAPI e integración con clientes.</li>
+            </ul>
+            <p class="meta">Repositorio: <a href="https://github.com/tu-usuario/biblioteca" target="_blank" rel="noopener">github.com/tu-usuario/biblioteca</a></p>
+          </article>
+
+          <article class="card" aria-labelledby="p3-title">
+            <div class="kpi">● Proyecto completado</div>
+            <h3 id="p3-title" style="margin: 6px 0 0;">App de Reporte de Incidencias</h3>
+            <p class="meta">HTML · CSS · JS · SQLite · Azure App Service</p>
+            <ul class="list">
+              <li>Panel web para registrar y seguir incidencias por estado y prioridad.</li>
+              <li>Exportación de reportes en CSV y control de acceso básico.</li>
+              <li>Despliegue continuo desde GitHub Actions.</li>
+            </ul>
+            <p class="meta">Repositorio: <a href="https://github.com/tu-usuario/incidencias" target="_blank" rel="noopener">github.com/tu-usuario/incidencias</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experiencia" aria-labelledby="h-experiencia">
+        <h2 id="h-experiencia">Experiencia & colaboración</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <strong>Prácticas y Freelance</strong>
+            <ul class="list">
+              <li>Soporte a despliegues en Azure App Service para proyectos estudiantiles.</li>
+              <li>Automatización de backups y verificación de logs.</li>
+              <li>Revisión de PRs y estandarización de linters/formatters.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <strong>Contribuciones</strong>
+            <ul class="list">
+              <li>Participación en hackathons universitarios (API-first, documentación y demo).</li>
+              <li>Ajustes de rendimiento en consultas SQL críticas.</li>
+              <li>Mejoras en DX: scripts npm y plantillas de README.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="educacion" aria-labelledby="h-educacion">
+        <h2 id="h-educacion">Educación</h2>
+        <div class="grid">
+          <div class="card">
+            <strong>Técnico/Ingeniería en TI</strong>
+            <p class="meta">Universidad / Instituto — 2022 – 2025</p>
+            <ul class="list">
+              <li>Materias clave: Estructuras de Datos, BD, Redes, Arquitectura de Software.</li>
+              <li>Proyecto final orientado a servicios web y despliegue en la nube.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" aria-labelledby="h-contacto">
+        <h2 id="h-contacto">Contacto</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <strong>Correo</strong>
+            <p><a href="mailto:derek.ti@example.com">derek.ti@example.com</a></p>
+          </div>
+          <div class="card">
+            <strong>GitHub</strong>
+            <p><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">github.com/tu-usuario</a></p>
+          </div>
+          <div class="card">
+            <strong>LinkedIn</strong>
+            <p><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">linkedin.com/in/tu-usuario</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year">2025</span> Derek · Hecho con HTML + CSS · Listo para Azure App Service
+    </footer>
+  </div>
+
+  <script>
+    // Actualiza el año automáticamente (sin frameworks)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
